@@ -1,0 +1,88 @@
+body {
+    background-color: #1a1919;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .singleMovieCard {
+    padding: 5px;
+  }
+  
+  #footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px;
+  }
+  
+  #footer-first-row {
+    display: flex;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  
+  #footer-second-row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer-cols {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+  }
+  
+  .footer-cols a {
+    margin-bottom: 1rem;
+  }
+  
+  #footer a {
+    color: rgba(238, 238, 238, 0.658);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  #footer i {
+    font-size: 1.6rem;
+    color: rgba(238, 238, 238, 0.658);
+    display: inline-block;
+    margin-right: 17px;
+  }
+  
+  #last-line {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 12px;
+    color: rgba(238, 238, 238, 0.658);
+  }
+  
+  #button-servic {
+    border: 1px solid rgba(238, 238, 238, 0.658);
+    font-size: 14px;
+    border-radius: 0%;
+    background-color: transparent;
+    color: rgba(238, 238, 238, 0.658);
+    width: 110px;
+    height: 34px;
+    margin: 12px 0;
+  }
+  
+  #button-servic:hover {
+    background-color: rgba(238, 238, 238, 0.658);
+    color: #1a1919;
+  }
+  
+  .icons {
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 18px;
+    color: #f5f5f1;
+  }
+  
+  .navbar-nav {
+    font-size: 0.9em;
+  }
+  
+  #kids {
+    color: #f5f5f1;
+    font-size: 0.8em;
+  }

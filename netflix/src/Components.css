@@ -78,6 +78,16 @@ body {
     color: #f5f5f1;
   }
   
+  .links{
+    color: rgb(119, 116, 116);
+    text-decoration: none;
+  }
+
+  .links:hover {
+    color: rgba(241, 234, 234, 0.671);
+    text-decoration: none;
+  }
+  
   .navbar-nav {
     font-size: 0.9em;
   }

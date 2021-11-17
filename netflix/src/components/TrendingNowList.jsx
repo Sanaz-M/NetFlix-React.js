@@ -2,13 +2,13 @@ import TrendingNowSingle from "./TrendingNowSingle";
 import { Col, Container, Form, Row, Spinner } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
-const TrendingNowList = ({movies}) =>{
+
+const TrendingNowList = ({title}) =>{
 
     const [movies1 , setMovies1] = useState([])
     const [movies2 , setMovies2] = useState([])
     const [movies3 , setMovies3] = useState([])
     const [searchQuery , setSearchQuery] = useState('')
-    const [isError, setIsError] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
 
   useEffect(()=>{
@@ -20,7 +20,7 @@ const TrendingNowList = ({movies}) =>{
 
  const fetchMovies1 = async () => {
     try {
-      let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s=ice-age");
+      let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s=" + title);
 
       if (response.ok) {
         let data = await response.json();
@@ -39,7 +39,7 @@ const TrendingNowList = ({movies}) =>{
 
   const fetchMovies2 = async () => {
     try {
-      let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s=the+lord+of+the+rings");
+      let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s="+ title);
 
       if (response.ok) {
         let data = await response.json();
@@ -65,7 +65,7 @@ const TrendingNowList = ({movies}) =>{
 
   const fetchMovies3 = async () => {
     try {
-      let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s=avengers");
+      let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s=" + title);
 
       if (response.ok) {
         let data = await response.json();
@@ -75,7 +75,6 @@ const TrendingNowList = ({movies}) =>{
         });
         console.log(movies3);
       } else {
-        // if we fall here we're getting an error, maybe a 404
         setMovies3({
           isLoading: false,
           isError: true,
@@ -112,7 +111,7 @@ const TrendingNowList = ({movies}) =>{
         <section>
           <div class="container-fluid mt-1 ml-6">
             <div class="mb-2">
-              <h4 class="d-table-cell mb-0 text-light">Ice age</h4>
+              <h4 class="d-table-cell mb-0 text-light">Ice Age</h4>
             </div>
 
             <div class="row mx-n1 mb-lg-5">
@@ -131,7 +130,7 @@ const TrendingNowList = ({movies}) =>{
           </div>
         </section>
 
-        <section>
+        {/* <section>
           <div class="container-fluid mt-1 ml-6">
             <div class="mb-2">
               <h4 class="d-table-cell mb-0 text-light">Lord Of The Rings</h4>
@@ -169,7 +168,7 @@ const TrendingNowList = ({movies}) =>{
                 ))}
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     );
   }

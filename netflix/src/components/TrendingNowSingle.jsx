@@ -1,8 +1,24 @@
-const TrendingNowSingle = (props) => (
-    <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 px-1 mb-4 mb-lg-0">
-      <img src={props.src} className="w-100 img-fluid" alt="movie" />
-      {console.log(props.src)}
-    </div>
+import { Button, Col } from "react-bootstrap";
+import { useNavigate } from "react-router";
+
+const TrendingNowSingle = ({ data, changeSelectedMovie }) => {
+    const navigate = useNavigate();
+
+  return (
+    <Col className="mb-2" key={data.imdbID}>
+      <img
+        className="img-fluid"
+        src={data.Poster}
+        alt="movie"
+        onClick={() => {
+          changeSelectedMovie(data.imdbID);
+        }}
+      />
+      <Button onClick={() => navigate("/details/" + data.imdbID)}>
+        Movie Details
+      </Button>
+    </Col>
   );
+}
   
   export default TrendingNowSingle;

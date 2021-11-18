@@ -1,11 +1,8 @@
-import MyNavBar from "./MyNavBar"
 import { Link } from "react-router-dom"
-import TrendingNowList from "./TrendingNowList"
 
-const Home = () => {
+const Sorting = () => {
     return (
         <>
-            <MyNavBar />
             <div
                 className="d-flex"
                 style={{
@@ -114,4 +111,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Sorting

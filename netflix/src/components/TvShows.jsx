@@ -14,7 +14,7 @@ const TvShows = () => {
 
   const fetchMovies = async () => {
     try {
-      let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s=lost");
+      let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s=dark");
 
       if (response.ok) {
         let data = await response.json();
@@ -33,7 +33,6 @@ const TvShows = () => {
   }
 return(
   <>
-  <MyNavBar />
   <Container>
     <Row>
       <Col>

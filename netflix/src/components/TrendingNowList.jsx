@@ -13,9 +13,9 @@ const TrendingNowList = ({title}) =>{
 
   useEffect(()=>{
     fetchMovies1();
-    fetchMovies2();
-    fetchMovies3();
-  })
+    // fetchMovies2();
+    // fetchMovies3();
+  },[])
   
 
  const fetchMovies1 = async () => {
@@ -37,56 +37,56 @@ const TrendingNowList = ({title}) =>{
     }
   };
 
-  const fetchMovies2 = async () => {
-    try {
-      let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s="+ title);
+  // const fetchMovies2 = async () => {
+  //   try {
+  //     let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s="+ title);
 
-      if (response.ok) {
-        let data = await response.json();
-        setMovies2({
-          movies2: data.Search,
-          isLoading: false,
-        });
-        console.log(movies2);
-      } else {
-        // if we fall here we're getting an error, maybe a 404
-        setMovies2({
-          isLoading: false,
-          isError: true,
-        });
-      }
-    } catch (error) {
-      setMovies2({
-        isLoading: false,
-        isError: true,
-      });
-    }
-  };
+  //     if (response.ok) {
+  //       let data = await response.json();
+  //       setMovies2({
+  //         movies2: data.Search,
+  //         isLoading: false,
+  //       });
+  //       console.log(movies2);
+  //     } else {
+  //       // if we fall here we're getting an error, maybe a 404
+  //       setMovies2({
+  //         isLoading: false,
+  //         isError: true,
+  //       });
+  //     }
+  //   } catch (error) {
+  //     setMovies2({
+  //       isLoading: false,
+  //       isError: true,
+  //     });
+  //   }
+  // };
 
-  const fetchMovies3 = async () => {
-    try {
-      let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s=" + title);
+  // const fetchMovies3 = async () => {
+  //   try {
+  //     let response = await fetch("https://www.omdbapi.com/?apikey=bf640f83&s=" + title);
 
-      if (response.ok) {
-        let data = await response.json();
-        setMovies3({
-          movies3: data.Search,
-          isLoading: false,
-        });
-        console.log(movies3);
-      } else {
-        setMovies3({
-          isLoading: false,
-          isError: true,
-        });
-      }
-    } catch (error) {
-      setMovies3({
-        isLoading: false,
-        isError: true,
-      });
-    }
-  };
+  //     if (response.ok) {
+  //       let data = await response.json();
+  //       setMovies3({
+  //         movies3: data.Search,
+  //         isLoading: false,
+  //       });
+  //       console.log(movies3);
+  //     } else {
+  //       setMovies3({
+  //         isLoading: false,
+  //         isError: true,
+  //       });
+  //     }
+  //   } catch (error) {
+  //     setMovies3({
+  //       isLoading: false,
+  //       isError: true,
+  //     });
+  //   }
+  // };
 
 
     return (
@@ -118,13 +118,9 @@ const TrendingNowList = ({title}) =>{
               {isLoading && (
                 <Spinner animation="border" variant="info" />
               )}
-              {movies1
-                .filter((res) =>
-                  res.Title.toLowerCase().includes(searchQuery)
-                )
-                .slice(0, 6)
+              {movies1.length>0 && movies1.slice(0 , 6)
                 .map((res) => (
-                  <TrendingNowSingle src={res.Poster} />
+                  <TrendingNowSingle src={res.Poster} data={res} />
                 ))}
             </div>
           </div>
